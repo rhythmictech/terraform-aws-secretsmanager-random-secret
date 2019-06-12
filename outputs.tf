@@ -1,3 +1,3 @@
 output "secret" {
-  value = aws_secretsmanager_secret.secret.result
+  value = random_string.random_string.result
 }
