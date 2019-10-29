@@ -48,6 +48,8 @@ variable "description" {
   default = ""
 }
 
-variable "name" {
+variable "name_prefix" {
   type = string
+  default = "terraform"
 }
+

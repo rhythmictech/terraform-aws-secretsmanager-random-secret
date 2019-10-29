@@ -1,6 +1,6 @@
 
 locals {
-  base_tags = {
+  common_tags = {
     env       = var.env
     owner     = var.owner
     namespace = var.namespace
@@ -20,13 +20,11 @@ resource "random_string" "random_string" {
 
 resource "aws_secretsmanager_secret" "secret" {
   description = var.description
+  name_prefix = var.name_prefix
 
   tags = merge(
-    local.base_tags,
-    var.additional_tags,
-    map(
-      "Name", var.name
-    )
+    local.common_tags,
+    var.additional_tags
   )
 }
 
