@@ -1,17 +1,4 @@
-
-variable "namespace" {
-  type = string
-}
-
-variable "env" {
-  type = string
-}
-
-variable "owner" {
-  type = string
-}
-
-variable "additional_tags" {
+variable "tags" {
   default = {}
   type    = map(string)
 }
@@ -51,5 +38,9 @@ variable "description" {
 variable "name_prefix" {
   type = string
   default = "terraform"
+}
+
+variable "name" {
+  type = string
 }
 

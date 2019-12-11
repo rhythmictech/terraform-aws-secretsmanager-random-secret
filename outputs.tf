@@ -1,6 +1,6 @@
 output "secret" {
   description = "Generated secret"
-  value       = random_string.random_string.result
+  value       = random_password.random_string.result
 }
 
 output "secret_arn" {
