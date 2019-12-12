@@ -4,15 +4,6 @@ terraform {
   }
 }
 
-locals {
-  tags = merge(
-    var.tags,
-    {
-      "Name" = var.name
-    }
-  )
-}
-
 resource "random_password" "random_string" {
   length           = var.length
   special          = var.special
@@ -26,8 +17,9 @@ resource "random_password" "random_string" {
 
 resource "aws_secretsmanager_secret" "secret" {
   description = var.description
-  name_prefix = var.name_prefix
-  tags        = local.tags
+  name        = var.name == "" ? null : var.name
+  name_prefix = var.name == "" ? var.name_prefix : null
+  tags        = var.tags
 }
 
 resource "aws_secretsmanager_secret_version" "secret_val" {

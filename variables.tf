@@ -4,43 +4,46 @@ variable "tags" {
 }
 
 variable "length" {
-    type = number
-  
+  type = number
+
 }
 
 variable "special" {
-  type = bool
+  type    = bool
   default = false
 }
 
 variable "min_special" {
-    type = number
-    default = 0
-  
+  type    = number
+  default = 0
+
 }
 
 variable "override_special" {
-    type = string
-    default = ""
-  
+  type    = string
+  default = ""
+
 }
 
 variable "pass_version" {
-  type = number
+  type    = number
   default = 1
 }
 
 variable "description" {
-  type = string
+  type    = string
   default = ""
 }
 
 variable "name_prefix" {
-  type = string
-  default = "terraform"
+  type        = string
+  default     = "terraform"
+  description = "Name Prefix (not used if name specified)"
 }
 
 variable "name" {
-  type = string
+  type        = string
+  default     = ""
+  description = "Name (omit to use name_prefix)"
 }
 
