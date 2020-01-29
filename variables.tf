@@ -36,7 +36,8 @@ variable "tags" {
 ########################################
 
 variable "cloudtrail_log_group" {
-  default     = ""
+  # can't leave this blank or upstream module var validation will fail in tflint
+  default     = "change_me"
   description = "Cloudtrail Log Group name (required if `enable_secret_access_notification=true`)"
   type        = string
 }
