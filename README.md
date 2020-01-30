@@ -22,6 +22,7 @@ module "random_password" {
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | cloudtrail\_log\_group | Cloudtrail Log Group name \(required if `enable\_secret\_access\_notification=true`\) | string | `"change_me"` | no |
+| create\_secret | If false, this module does nothing \(since tf doesn't support conditional modules\) | bool | `"true"` | no |
 | description | Description to add to Secret | string | `""` | no |
 | enable\_secret\_access\_notification | Notify SNS topic on secret access \(not recommended for most use cases\) | bool | `"false"` | no |
 | length | Length of string | number | n/a | yes |

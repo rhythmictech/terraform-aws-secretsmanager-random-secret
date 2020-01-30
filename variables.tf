@@ -1,6 +1,12 @@
 ########################################
 # General vars
 ########################################
+variable "create_secret" {
+  default     = true
+  description = "If false, this module does nothing (since tf doesn't support conditional modules)"
+  type        = bool
+}
+
 variable "description" {
   default     = ""
   description = "Description to add to Secret"
