@@ -3,7 +3,7 @@
 ########################################
 variable "create_secret" {
   default     = true
-  description = "If true, this module does nothing (since tf doesn't support conditional modules)"
+  description = "If false, this module does nothing (since tf doesn't support conditional modules)"
   type        = bool
 }
 
