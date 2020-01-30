@@ -5,6 +5,7 @@ terraform {
 }
 
 resource "random_password" "random_string" {
+  count            = var.create_secret ? 1 : 0
   length           = var.length
   lower            = var.use_lower
   number           = var.use_number
@@ -22,6 +23,7 @@ resource "random_password" "random_string" {
 }
 
 resource "aws_secretsmanager_secret" "secret" {
+  count       = var.create_secret ? 1 : 0
   name        = var.name == "" ? null : var.name
   name_prefix = var.name == "" ? var.name_prefix : null
   description = var.description
@@ -29,6 +31,7 @@ resource "aws_secretsmanager_secret" "secret" {
 }
 
 resource "aws_secretsmanager_secret_version" "secret_val" {
-  secret_id     = aws_secretsmanager_secret.secret.id
-  secret_string = random_password.random_string.result
+  count         = var.create_secret ? 1 : 0
+  secret_id     = aws_secretsmanager_secret.secret[0].id
+  secret_string = random_password.random_string[0].result
 }
