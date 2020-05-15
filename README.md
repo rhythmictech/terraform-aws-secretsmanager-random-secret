@@ -12,7 +12,7 @@ module "random_password" {
   name_prefix       = "RDSPassword"
   description       = "RDS instance master password"
   length            = 20
-  override_specials = "@#$%^*()-=_+[]{};<>?,./"
+  override_special  = "@#$%^*()-=_+[]{};<>?,./"
 }
 ```
 
