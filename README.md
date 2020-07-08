@@ -38,6 +38,7 @@ module "random_password" {
 | create\_secret | If false, this module does nothing (since tf doesn't support conditional modules) | `bool` | `true` | no |
 | description | Description to add to Secret | `string` | `""` | no |
 | enable\_secret\_access\_notification | Notify SNS topic on secret access (not recommended for most use cases) | `bool` | `false` | no |
+| kms\_key\_id | Optional. The KMS Key ID to encrypt the secret. KMS key arn or alias can be used. | `any` | `null` | no |
 | length | Length of string | `number` | n/a | yes |
 | min\_lower | Minimum number of lower case characters | `number` | `0` | no |
 | min\_numeric | Minimum number of numbers | `number` | `0` | no |
