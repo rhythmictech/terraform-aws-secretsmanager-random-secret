@@ -13,6 +13,11 @@ variable "description" {
   type        = string
 }
 
+variable "kms_key_id" {
+  default     = null
+  description = "Optional. The KMS Key ID to encrypt the secret. KMS key arn or alias can be used."
+}
+
 variable "name" {
   default     = ""
   description = "Name (omit to use name_prefix)"
@@ -72,7 +77,6 @@ variable "secret_access_notification_arn" {
 variable "length" {
   description = "Length of string"
   type        = number
-
 }
 
 variable "min_lower" {

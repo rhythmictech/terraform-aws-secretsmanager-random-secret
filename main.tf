@@ -27,6 +27,7 @@ resource "aws_secretsmanager_secret" "secret" {
   name        = var.name == "" ? null : var.name
   name_prefix = var.name == "" ? var.name_prefix : null
   description = var.description
+  kms_key_id  = var.kms_key_id
   tags        = var.tags
 }
 
