@@ -12,7 +12,6 @@ module "random_password" {
   name_prefix             = "RDSPassword"
   description             = "RDS instance master password"
   length                  = 20
-  recovery_window_in_days = 30
   override_special        = "@#$%^*()-=_+[]{};<>?,./"
 }
 ```
