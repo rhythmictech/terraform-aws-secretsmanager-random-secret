@@ -8,11 +8,12 @@ Example:
 
 ```
 module "random_password" {
-  source            = "git::https://github.com/rhythmictech/terraform-aws-secretsmanager-secret"
-  name_prefix       = "RDSPassword"
-  description       = "RDS instance master password"
-  length            = 20
-  override_special  = "@#$%^*()-=_+[]{};<>?,./"
+  source                  = "git::https://github.com/rhythmictech/terraform-aws-secretsmanager-secret"
+  name_prefix             = "RDSPassword"
+  description             = "RDS instance master password"
+  length                  = 20
+  recovery_window_in_days = 30
+  override_special        = "@#$%^*()-=_+[]{};<>?,./"
 }
 ```
 
@@ -46,6 +47,7 @@ module "random_password" {
 | min\_upper | Minimum number of upper case characters | `number` | `0` | no |
 | name | Name (omit to use name\_prefix) | `string` | `""` | no |
 | name\_prefix | Name Prefix (not used if name specified) | `string` | `"terraform"` | no |
+| recovery_window_in_days | Number of days to wait before deleting the secret | `number` | `""` | no |
 | override\_special | n/a | `string` | `""` | no |
 | pass\_version | Password version. Increment this to trigger a new password. | `number` | `1` | no |
 | secret\_access\_metric\_namespace | Metric namespace to use for CloudWatch metric | `string` | `"SecretsManager"` | no |
