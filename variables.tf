@@ -36,6 +36,12 @@ variable "pass_version" {
   type        = number
 }
 
+variable "recovery_window_in_days" {
+  default     = 30
+  description = "Number of days that AWS Secrets Manager waits before it can delete the secret."
+  type        = number
+}
+
 variable "tags" {
   default     = {}
   description = "Tags to add to supported resources"
