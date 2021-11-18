@@ -23,12 +23,13 @@ resource "random_password" "random_string" {
 }
 
 resource "aws_secretsmanager_secret" "secret" {
-  count       = var.create_secret ? 1 : 0
-  name        = var.name == "" ? null : var.name
-  name_prefix = var.name == "" ? var.name_prefix : null
-  description = var.description
-  kms_key_id  = var.kms_key_id
-  tags        = var.tags
+  count                   = var.create_secret ? 1 : 0
+  name                    = var.name == "" ? null : var.name
+  name_prefix             = var.name == "" ? var.name_prefix : null
+  description             = var.description
+  kms_key_id              = var.kms_key_id
+  recovery_window_in_days = var.recovery_window_in_days
+  tags                    = var.tags
 }
 
 resource "aws_secretsmanager_secret_version" "secret_val" {
