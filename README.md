@@ -30,6 +30,16 @@ module "random_password" {
 | aws | n/a |
 | random | >= 2.2.0 |
 
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_cloudwatch_log_metric_filter.secret_access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_metric_filter) | resource |
+| [aws_cloudwatch_metric_alarm.unauthorized_cloudtrail_calls](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
+| [aws_secretsmanager_secret.secret](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret) | resource |
+| [aws_secretsmanager_secret_version.secret_val](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret_version) | resource |
+| [random_password.random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -64,7 +74,6 @@ module "random_password" {
 | secret | Generated secret |
 | secret\_arn | The ARN of the secret |
 | version\_id | The unique identifier of the version of the secret. |
-
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Warning
